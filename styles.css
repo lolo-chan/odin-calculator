@@ -35,6 +35,8 @@ button {
 }
 
 .display {
+    display: flex;
+    flex-direction: column;
     font-size: 40px;
     font-weight: bolder;
     border: 2px solid black;
@@ -45,6 +47,14 @@ button {
     background-color: lightslategray;
     color: aliceblue;
     padding: 6px;
+}
+
+.topdis {
+    font-size: 20px;
+}
+
+.botdis {
+    font-size: 56px;
 }
 
 .bracket,
