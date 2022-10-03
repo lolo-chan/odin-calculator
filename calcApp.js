@@ -54,18 +54,36 @@ const clear = document.querySelector('.clear');
 const backspace = document.querySelector('.back');
 const display = document.querySelector('.display');
 
-let num1, num2, operator;
+let num1 = 0;
+num2 = 0;
+let operator;
+let ans;
+let check = 0;
 
 btnPlus.addEventListener('click', () => {
     num1 = parseInt(display.textContent);
     display.textContent = '';
     operator = '+';
+    if (check > 0){
+        ans = operate(operator, ans, num1);
+    }
+    else{
+        ans = num1;
+    }
+    check++;
 });
 
 btnMinus.addEventListener('click', () => {
     num1 = parseInt(display.textContent);
     display.textContent = '';
     operator = '-';
+    if (check > 0){
+        ans = operate(operator, ans, num1);
+    }
+    else{
+        ans = num1;
+    }
+    check++;
 });
 
 btnX.addEventListener('click', () => {
@@ -78,16 +96,21 @@ btnDivide.addEventListener('click', () => {
     num1 = parseInt(display.textContent);
     display.textContent = '';
     operator = '/';
-})
+});
 
 equals.addEventListener('click', () => {
     num2 = parseInt(display.textContent);
-    display.textContent = operate(operator, num1, num2);
+    display.textContent = operate(operator, ans, num1);
+    check = 0;
 });
 
 
 clear.addEventListener('click', () => {
     display.textContent = '';
+    num1 = 0;
+    num2 = 0;
+    ans = 0;
+    check = 0;
 });
 
 btn0.addEventListener('click', () => {
